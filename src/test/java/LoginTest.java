@@ -6,13 +6,13 @@ import client.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageobj.*;
+import model.*;
 
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertEquals;
-import static pageobj.LoginPage.LOGIN_PAGE_URL;
-import static pageobj.MainPage.MAIN_PAGE_URL;
+import static model.LoginPage.LOGIN_PAGE_URL;
+import static model.MainPage.MAIN_PAGE_URL;
 
 import static client.User.getRandomUser;
 

@@ -6,17 +6,17 @@ import client.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageobj.LoginPage;
-import pageobj.MainPage;
-import pageobj.ProfilePage;
+import model.LoginPage;
+import model.MainPage;
+import model.ProfilePage;
 
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 import static client.User.getRandomUser;
 import static org.junit.Assert.assertEquals;
-import static pageobj.LoginPage.LOGIN_PAGE_URL;
-import static pageobj.MainPage.MAIN_PAGE_URL;
-import static pageobj.ProfilePage.PROFILE_PAGE_URL;
+import static model.LoginPage.LOGIN_PAGE_URL;
+import static model.MainPage.MAIN_PAGE_URL;
+import static model.ProfilePage.PROFILE_PAGE_URL;
 
 public class OpenProfileTest {
 

@@ -7,16 +7,16 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageobj.LoginPage;
-import pageobj.MainPage;
-import pageobj.RegisterPage;
+import model.LoginPage;
+import model.MainPage;
+import model.RegisterPage;
 
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 import static client.User.getRandomUser;
 import static org.junit.Assert.assertEquals;
-import static pageobj.LoginPage.LOGIN_PAGE_URL;
-import static pageobj.MainPage.MAIN_PAGE_URL;
+import static model.LoginPage.LOGIN_PAGE_URL;
+import static model.MainPage.MAIN_PAGE_URL;
 
 public class RegisterTest {
 
@@ -39,6 +39,7 @@ public class RegisterTest {
 
     @After
     public void deleteUser() {
+        closeWindow();
         try {
             userClient.deleteUser(user);
         } catch (IllegalArgumentException e) {
@@ -56,7 +57,6 @@ public class RegisterTest {
         registerPage.clickRegisterButtonForLogin();
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals(LOGIN_PAGE_URL, currentUrl);
-        closeWindow();
     }
 
     @Test
@@ -70,6 +70,5 @@ public class RegisterTest {
         registerPage.setPassword(user.getPassword());
         registerPage.clickRegisterButton();
         registerPage.compareText("Некорректный пароль");
-        closeWindow();
     }
 }

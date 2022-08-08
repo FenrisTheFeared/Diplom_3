@@ -6,14 +6,14 @@ import client.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageobj.*;
+import model.*;
 
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 import static client.User.getRandomUser;
 import static org.junit.Assert.assertEquals;
-import static pageobj.LoginPage.LOGIN_PAGE_URL;
-import static pageobj.MainPage.MAIN_PAGE_URL;
+import static model.LoginPage.LOGIN_PAGE_URL;
+import static model.MainPage.MAIN_PAGE_URL;
 
 public class LogoutTest {
     MainPage mainPage;
@@ -37,6 +37,7 @@ public class LogoutTest {
 
     @After
     public void deleteUser() {
+        closeWindow();
         userClient.deleteUser(user);
     }
 
@@ -51,6 +52,5 @@ public class LogoutTest {
         profilePage.clickLogout();
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals(LOGIN_PAGE_URL, currentUrl);
-        closeWindow();
     }
 }
